@@ -43,17 +43,13 @@ PasteQL is a self-hosted pastebin built with ASP.NET Core, EF Core, GraphQL, and
 
 ## Configuring PostgreSQL
 
-Set a connection string in `src/PasteQL/appsettings.json` or environment variables:
+Set `DATABASE_URL` to a PostgreSQL connection URI in the environment or in a `.env` file:
 
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Database=pasteql;Username=postgres;Password=postgres"
-  }
-}
+```text
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/pasteql
 ```
 
-If no connection string is configured, the app will use an in-memory database so it can start immediately in development.
+The app requires this variable in every environment. Copy `.env.example` to `.env` and replace its example credentials with your database values.
 
 ## Example GraphQL query
 
@@ -91,4 +87,4 @@ This application is intended for self-hosting in trusted environments. For produ
 
 ## License
 
-This project is released under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). See the `LICENSE` file for the full text.
