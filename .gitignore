@@ -1,0 +1,29 @@
+## Build output
+bin/
+obj/
+artifacts/
+
+## Userlocal / IDE
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Local runtime
+keys/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Logs
+*.log

@@ -1,0 +1,25 @@
+@model PasteReadResult
+
+<section class="card paste-shell">
+    <div class="meta-stack">
+        <span>Slug: @Model.Id</span>
+        <span>Language: @Model.Language</span>
+        <span>Created: @Model.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm 'UTC'")</span>
+        <span>Expires: @Model.ExpiresAtUtc.ToString("yyyy-MM-dd HH:mm 'UTC'")</span>
+        <span>Views: @Model.ViewCount</span>
+        @if (Model.IsPasswordProtected)
+        {
+            <span>Password protected</span>
+        }
+        @if (Model.BurnAfterRead)
+        {
+            <span>Burn after read</span>
+        }
+    </div>
+
+    <h1>@Model.Title</h1>
+
+    <div class="paste-content">
+        @Html.Raw(Model.RenderedHtml)
+    </div>
+</section>

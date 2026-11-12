@@ -1,0 +1,15 @@
+@model PasteProtectionViewModel
+
+<section class="card paste-shell">
+    <h1>Password required</h1>
+    <p class="notice">This paste is protected. Enter the password to reveal the content.</p>
+
+    <form asp-action="Unlock" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+        </div>
+        <button type="submit">Unlock paste</button>
+    </form>
+</section>

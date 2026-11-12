@@ -1,0 +1,71 @@
+@model PasteCreateViewModel
+
+<div class="hero">
+    <section class="card paste-shell">
+        <h1>Encrypted, shareable snippets</h1>
+        <p>Store notes, logs, or code in a self-hosted pastebin with expiry, password protection, and a native GraphQL API.</p>
+
+        <form asp-controller="Paste" asp-action="Create" method="post">
+            <div class="grid-2">
+                <div>
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" />
+                </div>
+                <div>
+                    <label asp-for="Language"></label>
+                    <select asp-for="Language">
+                        <option value="text">text</option>
+                        <option value="csharp">csharp</option>
+                        <option value="json">json</option>
+                        <option value="sql">sql</option>
+                        <option value="bash">bash</option>
+                        <option value="html">html</option>
+                        <option value="javascript">javascript</option>
+                        <option value="yaml">yaml</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content" placeholder="Paste your code, logs, notes, or markdown here..."></textarea>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" type="password" placeholder="Leave blank for public paste" />
+                </div>
+                <div>
+                    <label asp-for="ExpiresInMinutes"></label>
+                    <input asp-for="ExpiresInMinutes" type="number" min="1" max="525600" />
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <label asp-for="MaxViews"></label>
+                    <input asp-for="MaxViews" type="number" min="0" max="1000" value="0" />
+                </div>
+                <div>
+                    <label>
+                        <input asp-for="BurnAfterRead" type="checkbox" /> Burn after read
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">Create paste</button>
+        </form>
+    </section>
+
+    <aside class="card paste-shell">
+        <h2>Built for dev teams</h2>
+        <ul>
+            <li>Encrypted content using ASP.NET Data Protection</li>
+            <li>Markdown rendering with sanitization</li>
+            <li>Server-side syntax highlighting for common languages</li>
+            <li>Optional password and self-destruct windows</li>
+            <li>Query interface via GraphQL endpoint at /graphql</li>
+        </ul>
+    </aside>
+</div>
