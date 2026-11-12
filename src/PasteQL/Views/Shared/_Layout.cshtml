@@ -9,7 +9,10 @@
 <body>
     <header>
         <nav>
-            <a asp-controller="Home" asp-action="Index" class="brand">PasteQL</a>
+            <a asp-controller="Home" asp-action="Index" class="brand">
+                <span class="brand-mark" aria-hidden="true">P</span>
+                <span>PasteQL</span>
+            </a>
             <div class="links">
                 <a asp-controller="Home" asp-action="Index">New paste</a>
                 <a href="/graphql">GraphQL</a>
@@ -20,5 +23,6 @@
     <main>
         @RenderBody()
     </main>
+    <footer>Private by design. Simple to share.</footer>
 </body>
 </html>

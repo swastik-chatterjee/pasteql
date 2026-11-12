@@ -4,9 +4,9 @@
     <h1>Password required</h1>
     <p class="notice">This paste is protected. Enter the password to reveal the content.</p>
 
-    <form asp-action="Unlock" asp-route-id="@Model.Id" method="post">
+    <form class="protected-form" asp-action="Unlock" asp-route-id="@Model.Id" method="post">
         @Html.AntiForgeryToken()
-        <div>
+        <div class="form-field">
             <label for="password">Password</label>
             <input id="password" name="password" type="password" required />
         </div>
